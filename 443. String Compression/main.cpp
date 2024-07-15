@@ -23,18 +23,10 @@ public:
                 newChars.push_back(chars[i - 1]);
                 if (count != 1)
                 {
-                    if (count > 9)
+                    string stroka = to_string(count);
+                    for (auto i : stroka)
                     {
-                        string stroka = to_string(count);
-                        for (auto i : stroka)
-                        {
-                            newChars.push_back(i);
-                        }
-                    }
-                    else
-                    {
-
-                        newChars.push_back((char)(((int)'0')+count));
+                        newChars.push_back(i);
                     }
                 }
                 count = 1;
@@ -48,17 +40,10 @@ public:
                 newChars.push_back(chars[i]);
                 if (count != 1)
                 {
-                    if (count > 9)
+                    string stroka = to_string(count);
+                    for (auto i : stroka)
                     {
-                        string stroka = to_string(count);
-                        for (auto i : stroka)
-                        {
-                            newChars.push_back(i);
-                        }
-                    }
-                    else
-                    {
-                        newChars.push_back((char)(((int)'0')+count));
+                        newChars.push_back(i);
                     }
                 }
             }
@@ -70,7 +55,7 @@ public:
 
 int main()
 {
-    vector<char> chars = {'a','b','b','b','b','b','b','b','b','b','b','b','b'};
+    vector<char> chars = {'a', 'b', 'b', 'b', 'c', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'};
     Solution a;
     cout << a.compress(chars) << endl;
     for (auto i : chars)
