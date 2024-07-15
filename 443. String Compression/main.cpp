@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <string>
 #include <cstdlib>
 using namespace std;
 
@@ -24,13 +25,17 @@ public:
                 {
                     if (count > 9)
                     {
-                        for (int j=0;j<to_string(count).size();++j)
+                        string stroka = to_string(count);
+                        for (auto i : stroka)
                         {
-                            newChars.push_back(to_string(count)[i]);
+                            newChars.push_back(i);
                         }
                     }
                     else
-                        newChars.push_back(count);
+                    {
+
+                        newChars.push_back((char)(((int)'0')+count));
+                    }
                 }
                 count = 1;
             }
@@ -45,26 +50,32 @@ public:
                 {
                     if (count > 9)
                     {
-                        for (int j=0;j<to_string(count).size();++j)
+                        string stroka = to_string(count);
+                        for (auto i : stroka)
                         {
-                            newChars.push_back(char(to_string(count)[i]));
+                            newChars.push_back(i);
                         }
                     }
                     else
-                        newChars.push_back(count);
+                    {
+                        newChars.push_back((char)(((int)'0')+count));
+                    }
                 }
             }
         }
         chars.assign(newChars.begin(), newChars.end());
-        newChars.clear();
-        return newChars.size();
+        return chars.size();
     }
 };
 
 int main()
 {
-    vector<char> chars = {'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'};
+    vector<char> chars = {'a','b','b','b','b','b','b','b','b','b','b','b','b'};
     Solution a;
     cout << a.compress(chars) << endl;
+    for (auto i : chars)
+    {
+        cout << i << endl;
+    }
     return 0;
 }
