@@ -1,43 +1,27 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-//чужое решение с указателями (лучше по времени)
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        int left = 0;
-        int right = height.size() - 1;
-        int maxArea = 0;
-
-        while (left < right) {
-            int currentArea = min(height[left], height[right]) * (right - left);
-            maxArea = max(maxArea, currentArea);
-
-            if (height[left] < height[right]) {
-                left++;
-            } else {
-                right--;
+        int maxArea=0;
+        int l=0,r=height.size()-1;
+        while (l<r)
+        {
+            maxArea=max(maxArea,min(height[r],height[l])*(r-l));
+            if (height[r]<height[l])
+            {
+                --r;
+            }
+            else
+            {
+                ++l;
             }
         }
-
         return maxArea;
     }
 };
-//моё
-// class Solution {
-// public:
-//     int maxArea(vector<int>& height) {
-//         int max_area=0;;
-//         for (int i=0;i<height.size();++i)
-//         {
-//             for (int j=i+1;j<height.size();++j)
-//             {
-//                 max_area=max(max_area,min(height[i],height[j])*(j-i));
-//             }
-//         }
-//         return max_area;
-//     }
-// };
+
 
 int main()
 {
