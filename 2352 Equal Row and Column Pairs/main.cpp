@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <map>
 #include <iostream>
 using namespace std;
 
@@ -9,22 +10,20 @@ public:
     {
         int rez = 0;
         int n = grid.size();
-        for (int i = 0; i < n; ++i)
+        map <vector<int>,int> m;
+        for (int i=0;i<n;++i)
         {
-            for (int j = 0; j < n; ++j)
+            ++m[grid[i]];
+        }
+        for (int i=0;i<n;++i)
+        {
+            vector<int> temp;
+            for (int j=0;j<n;++j)
             {
-
-                int countEqual = 0;
-                if (grid[i][0] == grid[0][j])
-                {
-                    for (int z = 0; z < n; ++z)
-                    {
-                        if (grid[i][z] == grid[z][j]) ++countEqual;
-                        else break;
-                    }
-                    if (countEqual == n) ++rez;
-                }
+                temp.push_back(grid[j][i]);
             }
+            rez+=m[temp];
+            temp.clear();
         }
         return rez;
     }
