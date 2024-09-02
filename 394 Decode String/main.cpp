@@ -28,7 +28,6 @@ public:
                 tempNumber+=s[i];
             }
             else if (cr==0 && cl==0 && 'a'<=s[i] && s[i]<='z') rez+=s[i];
-            //куда втыкнуть аааааааа
             if (cl && cr<cl)
             {
                 if (s[i]=='[' && cl==1)
@@ -37,7 +36,6 @@ public:
                 }else
                 substring+=s[i];
             }
-            //
             if (cr!=0 && cr==cl)
             {
                 string stroka=decodeString(substring);
